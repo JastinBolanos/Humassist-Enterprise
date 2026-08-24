@@ -1,0 +1,6 @@
+{
+  "name": "ERP de Recursos Humanos",
+  "description": "Panel integral de Recursos Humanos para gestión de nóminas, asistencias, roles corporativos y control de accesos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

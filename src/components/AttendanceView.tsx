@@ -394,7 +394,7 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({
                         <td className="p-4 font-semibold text-zinc-100">
                           <div className="flex items-center gap-2.5">
                             <img 
-                              src={emp?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80'}
+                              src={emp?.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80'}
                               alt="" 
                               referrerPolicy="no-referrer"
                               className="w-7 h-7 rounded-full object-cover border border-[#27272a]" 

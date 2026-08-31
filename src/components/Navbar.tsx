@@ -17,6 +17,7 @@ import { USER_PROFILES } from '../data/mockData';
 import { useLanguage } from '../i18n/LanguageContext';
 import { translateRoleTitle } from '../i18n/translations';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { BrandLogoMark } from './BrandLogoMark';
 
 interface NavbarProps {
   currentSession: UserSession;
@@ -88,13 +89,11 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-3 shrink-0">
           <div 
             id="brand-logo-btn"
-            className="flex items-center gap-2.5 cursor-pointer" 
+            className="flex items-center gap-2.5 cursor-pointer group" 
             onClick={onReturnToSplash} 
             title={t('nav.returnToSplash')}
           >
-            <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-base shadow-sm shadow-indigo-600/30">
-              H
-            </div>
+            <BrandLogoMark size="sm" />
             <div className="hidden sm:block">
               <span className="font-bold text-white text-sm tracking-tight flex items-center gap-1.5">
                 HUMASSIST <span className="text-indigo-400 font-semibold">Enterprise</span>

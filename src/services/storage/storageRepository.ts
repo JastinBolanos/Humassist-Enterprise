@@ -7,16 +7,16 @@ import {
 } from '../../data/mockData';
 
 const STORAGE_KEYS = {
-  EMPLOYEES: 'humassist_employees',
-  PAYROLLS: 'humassist_payrolls',
-  ATTENDANCES: 'humassist_attendances',
-  LEAVES: 'humassist_leaves'
+  EMPLOYEES: 'humassist_employees_v2',
+  PAYROLLS: 'humassist_payrolls_v2',
+  ATTENDANCES: 'humassist_attendances_v2',
+  LEAVES: 'humassist_leaves_v2'
 } as const;
 
 export class StorageRepository {
   static getEmployees(): Employee[] {
     try {
-      const saved = localStorage.getItem(STORAGE_KEYS.EMPLOYEES) || localStorage.getItem('nova_employees');
+      const saved = localStorage.getItem(STORAGE_KEYS.EMPLOYEES);
       return saved ? JSON.parse(saved) : INITIAL_EMPLOYEES;
     } catch {
       return INITIAL_EMPLOYEES;
@@ -33,7 +33,7 @@ export class StorageRepository {
 
   static getPayrolls(): PayrollItem[] {
     try {
-      const saved = localStorage.getItem(STORAGE_KEYS.PAYROLLS) || localStorage.getItem('nova_payrolls');
+      const saved = localStorage.getItem(STORAGE_KEYS.PAYROLLS);
       return saved ? JSON.parse(saved) : INITIAL_PAYROLL;
     } catch {
       return INITIAL_PAYROLL;
@@ -50,7 +50,7 @@ export class StorageRepository {
 
   static getAttendances(): AttendanceRecord[] {
     try {
-      const saved = localStorage.getItem(STORAGE_KEYS.ATTENDANCES) || localStorage.getItem('nova_attendances');
+      const saved = localStorage.getItem(STORAGE_KEYS.ATTENDANCES);
       return saved ? JSON.parse(saved) : INITIAL_ATTENDANCE;
     } catch {
       return INITIAL_ATTENDANCE;
@@ -67,7 +67,7 @@ export class StorageRepository {
 
   static getLeaves(): LeaveRequest[] {
     try {
-      const saved = localStorage.getItem(STORAGE_KEYS.LEAVES) || localStorage.getItem('nova_leaves');
+      const saved = localStorage.getItem(STORAGE_KEYS.LEAVES);
       return saved ? JSON.parse(saved) : INITIAL_LEAVES;
     } catch {
       return INITIAL_LEAVES;
@@ -87,6 +87,10 @@ export class StorageRepository {
     localStorage.removeItem(STORAGE_KEYS.PAYROLLS);
     localStorage.removeItem(STORAGE_KEYS.ATTENDANCES);
     localStorage.removeItem(STORAGE_KEYS.LEAVES);
+    localStorage.removeItem('humassist_employees');
+    localStorage.removeItem('humassist_payrolls');
+    localStorage.removeItem('humassist_attendances');
+    localStorage.removeItem('humassist_leaves');
     localStorage.removeItem('nova_employees');
     localStorage.removeItem('nova_payrolls');
     localStorage.removeItem('nova_attendances');

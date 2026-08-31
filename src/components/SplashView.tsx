@@ -16,6 +16,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { translateRoleTitle } from '../i18n/translations';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { AuthModal } from './AuthModal';
+import { BrandLogoMark } from './BrandLogoMark';
 
 interface SplashViewProps {
   onStart: (role?: AppRole, session?: UserSession) => void;
@@ -36,9 +37,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
       {/* Top Header */}
       <header className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between z-20">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30 text-white font-bold text-lg">
-            H
-          </div>
+          <BrandLogoMark size="md" glowIntensity="high" />
           <div>
             <span className="font-bold text-lg tracking-tight text-white flex items-center gap-2">
               HUMASSIST <span className="text-indigo-400 font-semibold">Enterprise</span>
@@ -120,7 +119,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
             {/* Micro Highlights */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#1F1F23] max-w-xl">
               <div>
-                <span className="text-2xl font-bold text-white font-mono tracking-tight">100%</span>
+                <span className="text-2xl font-bold text-white font-mono tracking-tight">99.9%</span>
                 <p className="text-xs text-zinc-400 mt-0.5">{t('splash.statFiscal')}</p>
               </div>
               <div>
@@ -149,7 +148,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               {/* Image Banner */}
               <div className="relative h-48 sm:h-56 overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&auto=format&fit=crop&q=80"
                   alt="Centro de Operaciones Corporativas"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center filter brightness-90 hover:scale-105 transition-transform duration-700"
@@ -237,7 +236,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               <div>
                 <div className="relative h-32 rounded-xl overflow-hidden mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&auto=format&fit=crop&q=80" 
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" 
                     alt="Gestión de Nóminas" 
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -265,7 +264,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               <div>
                 <div className="relative h-32 rounded-xl overflow-hidden mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80" 
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=80" 
                     alt="Control de Asistencias" 
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -293,7 +292,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               <div>
                 <div className="relative h-32 rounded-xl overflow-hidden mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80" 
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=80" 
                     alt="Directorio de Empleados" 
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -321,7 +320,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               <div>
                 <div className="relative h-32 rounded-xl overflow-hidden mb-4">
                   <img 
-                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&auto=format&fit=crop&q=80" 
+                    src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80" 
                     alt="Control de Accesos RBAC" 
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

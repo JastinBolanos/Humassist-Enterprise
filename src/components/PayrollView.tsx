@@ -496,7 +496,7 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                       <td className="p-4">
                         <div className="flex items-center gap-3">
                           <img
-                            src={emp?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'}
+                            src={emp?.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'}
                             alt={payroll.employeeName}
                             referrerPolicy="no-referrer"
                             className="w-8 h-8 rounded-full object-cover border border-[#27272a]"

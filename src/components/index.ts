@@ -11,3 +11,4 @@ export * from './ReportsView';
 export * from './Sidebar';
 export * from './SplashView';
 export * from './Toast';
+export * from './BrandLogoMark';

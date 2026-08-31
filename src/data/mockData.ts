@@ -15,7 +15,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 68000,
     hireDate: '2020-03-15',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Carlos Mendoza',
       relationship: 'Esposo',
@@ -40,7 +40,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 74000,
     hireDate: '2021-06-01',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Lucía Vega',
       relationship: 'Madre',
@@ -65,7 +65,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 52000,
     hireDate: '2019-11-10',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Mariana Gómez',
       relationship: 'Hermana',
@@ -90,7 +90,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 45000,
     hireDate: '2022-01-15',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Eduardo Navarro',
       relationship: 'Padre',
@@ -115,7 +115,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 58000,
     hireDate: '2022-07-01',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Fernanda Ortiz',
       relationship: 'Esposa',
@@ -140,7 +140,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 62000,
     hireDate: '2021-02-18',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Gabriel Cordero',
       relationship: 'Hermano',
@@ -165,7 +165,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 55000,
     hireDate: '2020-09-01',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Claudia Beltrán',
       relationship: 'Madre',
@@ -190,7 +190,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 38000,
     hireDate: '2023-04-10',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Jorge Ríos',
       relationship: 'Padre',
@@ -586,7 +586,7 @@ export const USER_PROFILES: Record<string, UserSession> = {
     role: 'super_admin',
     roleTitle: 'Director General / Super Administrador',
     department: 'Dirección General',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=300&auto=format&fit=crop&q=80',
     permissions: {
       canViewAllSalaries: true,
       canEditPayroll: true,
@@ -604,7 +604,7 @@ export const USER_PROFILES: Record<string, UserSession> = {
     role: 'hr_manager',
     roleTitle: 'Directora de Talento Humano',
     department: 'Talento Humano',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&auto=format&fit=crop&q=80',
     permissions: {
       canViewAllSalaries: true,
       canEditPayroll: true,
@@ -622,7 +622,7 @@ export const USER_PROFILES: Record<string, UserSession> = {
     role: 'payroll_specialist',
     roleTitle: 'Especialista Sr. de Nóminas',
     department: 'Finanzas',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format&fit=crop&q=80',
     permissions: {
       canViewAllSalaries: true,
       canEditPayroll: true,
@@ -640,7 +640,7 @@ export const USER_PROFILES: Record<string, UserSession> = {
     role: 'supervisor',
     roleTitle: 'Supervisora de Operaciones',
     department: 'Operaciones',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=300&auto=format&fit=crop&q=80',
     permissions: {
       canViewAllSalaries: false,
       canEditPayroll: false,
@@ -658,7 +658,7 @@ export const USER_PROFILES: Record<string, UserSession> = {
     role: 'employee',
     roleTitle: 'Colaborador - Frontend Developer',
     department: 'Tecnología',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80',
     permissions: {
       canViewAllSalaries: false,
       canEditPayroll: false,

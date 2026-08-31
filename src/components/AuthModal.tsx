@@ -23,6 +23,7 @@ import {
 import { AppRole, UserSession } from '../types';
 import { USER_PROFILES } from '../data/mockData';
 import { useLanguage } from '../i18n/LanguageContext';
+import { BrandLogoMark } from './BrandLogoMark';
 import { translateRoleTitle } from '../i18n/translations';
 
 interface AuthModalProps {
@@ -137,9 +138,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Modal Header */}
         <div className="p-6 sm:p-8 pb-4 border-b border-[#1F1F23] bg-gradient-to-b from-[#121215] to-[#0A0A0C]">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30 text-white font-bold text-lg">
-              H
-            </div>
+            <BrandLogoMark size="md" glowIntensity="high" />
             <div>
               <span className="text-xs font-mono text-indigo-400 font-bold uppercase tracking-wider block">
                 HUMASSIST ENTERPRISE
@@ -576,7 +575,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                       department: 'Dirección General',
                       name: regFullName || 'Usuario Solicitante',
                       email: submittedData.email,
-                      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+                      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80',
                       permissions: USER_PROFILES.super_admin.permissions
                     });
                     onClose();

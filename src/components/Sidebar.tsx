@@ -87,7 +87,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="w-64 bg-[#08080A] text-zinc-300 border-r border-[#1F1F23] flex flex-col justify-between shrink-0 hidden md:flex min-h-[calc(100vh-57px)]">
+    <aside className="w-72 bg-[#08080A] text-zinc-300 border-r border-[#1F1F23] flex flex-col justify-between shrink-0 hidden md:flex min-h-[calc(100vh-57px)]">
       {/* Navigation List */}
       <div className="p-4 space-y-1">
         <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-zinc-500 font-mono">
@@ -103,17 +103,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
               key={item.id}
               id={`sidebar-tab-${item.id}`}
               onClick={() => onTabChange(item.id)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all ${
+              className={`w-full flex items-center justify-between gap-2.5 px-3 py-2.5 rounded-xl text-left transition-all ${
                 isActive
                   ? 'bg-indigo-600 text-white font-semibold shadow-sm shadow-indigo-600/30'
                   : 'text-zinc-400 hover:bg-[#151518] hover:text-zinc-100'
               }`}
             >
-              <div className="flex items-center gap-3 min-w-0">
+              <div className="flex items-center gap-3 min-w-0 flex-1">
                 <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-zinc-400'}`} />
-                <div className="truncate">
-                  <div className="text-xs leading-tight">{item.label}</div>
-                  <div className={`text-[10px] truncate ${isActive ? 'text-indigo-200' : 'text-zinc-500'}`}>
+                <div className="min-w-0 flex-1">
+                  <div className="text-xs font-semibold leading-tight truncate">{item.label}</div>
+                  <div className={`text-[10px] leading-tight truncate mt-0.5 ${isActive ? 'text-indigo-200' : 'text-zinc-500'}`}>
                     {item.subtitle}
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
               {item.badge && (
                 <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded-full font-semibold border ${
+                  className={`inline-flex items-center justify-center px-2 py-0.5 rounded-full text-[10px] font-semibold leading-normal whitespace-nowrap shrink-0 border ${
                     isActive ? 'bg-white/20 text-white border-white/30' : item.badgeColor
                   }`}
                 >

@@ -312,6 +312,9 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({
                         src={emp.avatar}
                         alt={`${emp.firstName} ${emp.lastName}`}
                         referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&auto=format&fit=crop&q=80';
+                        }}
                         className="w-14 h-14 rounded-2xl object-cover border border-[#27272a] group-hover:scale-105 transition-transform"
                       />
                       <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0A0A0C]"></span>
@@ -391,7 +394,15 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({
                     <tr key={emp.id} className="hover:bg-[#121216] transition-colors">
                       <td className="p-4 font-semibold text-zinc-100">
                         <div className="flex items-center gap-3">
-                          <img src={emp.avatar} alt="" referrerPolicy="no-referrer" className="w-8 h-8 rounded-full object-cover border border-[#27272a]" />
+                          <img
+                            src={emp.avatar}
+                            alt=""
+                            referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80';
+                            }}
+                            className="w-8 h-8 rounded-full object-cover border border-[#27272a]"
+                          />
                           <div>
                             <span>{emp.firstName} {emp.lastName}</span>
                             <span className="text-[10px] text-zinc-400 block font-mono">{emp.code} • {emp.email}</span>
@@ -446,6 +457,9 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({
                   src={profileModalEmployee.avatar}
                   alt=""
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&auto=format&fit=crop&q=80';
+                  }}
                   className="w-14 h-14 rounded-2xl object-cover border-2 border-indigo-500/50"
                 />
                 <div>

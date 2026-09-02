@@ -17,7 +17,20 @@ export class StorageRepository {
   static getEmployees(): Employee[] {
     try {
       const saved = localStorage.getItem(STORAGE_KEYS.EMPLOYEES);
-      return saved ? JSON.parse(saved) : INITIAL_EMPLOYEES;
+      if (!saved) return INITIAL_EMPLOYEES;
+      const parsed: Employee[] = JSON.parse(saved);
+      let updated = false;
+      const employees = parsed.map(emp => {
+        if (emp.id === 'emp-7' && (emp.avatar?.includes('1628157582853-a796fa650a6a') || !emp.avatar)) {
+          updated = true;
+          return { ...emp, avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80' };
+        }
+        return emp;
+      });
+      if (updated) {
+        this.saveEmployees(employees);
+      }
+      return employees;
     } catch {
       return INITIAL_EMPLOYEES;
     }

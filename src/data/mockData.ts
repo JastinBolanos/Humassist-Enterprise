@@ -165,7 +165,7 @@ export const INITIAL_EMPLOYEES: Employee[] = [
     baseSalary: 55000,
     hireDate: '2020-09-01',
     status: 'Activo',
-    avatar: 'https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=300&auto=format&fit=crop&q=80',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80',
     emergencyContact: {
       name: 'Claudia Beltrán',
       relationship: 'Madre',

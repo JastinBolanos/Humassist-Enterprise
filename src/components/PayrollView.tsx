@@ -499,6 +499,9 @@ export const PayrollView: React.FC<PayrollViewProps> = ({
                             src={emp?.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'}
                             alt={payroll.employeeName}
                             referrerPolicy="no-referrer"
+                            onError={(e) => {
+                              e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80';
+                            }}
                             className="w-8 h-8 rounded-full object-cover border border-[#27272a]"
                           />
                           <div>

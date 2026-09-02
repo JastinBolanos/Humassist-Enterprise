@@ -217,6 +217,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 src={currentSession.avatar}
                 alt={currentSession.name}
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80';
+                }}
                 className="w-8 h-8 rounded-full object-cover border border-[#27272a] ring-2 ring-indigo-500/20"
               />
               <div className="hidden xl:flex flex-col text-left">

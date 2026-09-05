@@ -105,45 +105,45 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
         {/* KPI 1: Nómina */}
-        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all">
+        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all min-w-0">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider truncate">
               {t('dashboard.kpiPayroll')}
             </span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center shrink-0">
               <Banknote className="w-4 h-4" />
             </div>
           </div>
 
-          <div className="mt-3">
+          <div className="mt-3 min-w-0">
             {currentSession.permissions.canViewAllSalaries ? (
               <>
-                <span className="text-2xl font-bold font-mono text-zinc-100">
+                <span className="text-2xl font-bold font-mono text-zinc-100 block truncate">
                   ${totalPayrollCost.toLocaleString(language === 'es' ? 'es-MX' : 'en-US', { minimumFractionDigits: 2 })}
                 </span>
-                <span className="text-[11px] text-zinc-400 block mt-0.5 font-mono">
+                <span className="text-[11px] text-zinc-400 block mt-0.5 font-mono truncate">
                   {t('dashboard.kpiNet')} ${totalNetDisbursed.toLocaleString(language === 'es' ? 'es-MX' : 'en-US')} {language === 'es' ? 'MXN' : 'USD'}
                 </span>
               </>
             ) : (
               <>
-                <span className="text-2xl font-bold font-mono text-zinc-100">
+                <span className="text-2xl font-bold font-mono text-zinc-100 block">
                   ••••••••••
                 </span>
-                <span className="text-[11px] text-zinc-500 block mt-0.5">
+                <span className="text-[11px] text-zinc-500 block mt-0.5 truncate">
                   {t('dashboard.kpiRestricted')}
                 </span>
               </>
             )}
           </div>
 
-          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs">
-            <span className="text-zinc-400">
+          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs gap-2 min-w-0">
+            <span className="text-zinc-400 truncate">
               {paidCount} {t('dashboard.kpiPaidOf')} {payrolls.length} {t('dashboard.kpiPaidSuffix')}
             </span>
             <button 
               onClick={() => onNavigate('payroll')}
-              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1"
+              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap"
             >
               <span>{t('dashboard.kpiViewTable')}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -152,30 +152,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* KPI 2: Plantilla */}
-        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all">
+        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all min-w-0">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider truncate">
               {t('dashboard.kpiActiveStaff')}
             </span>
-            <div className="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center shrink-0">
               <Users className="w-4 h-4" />
             </div>
           </div>
 
-          <div className="mt-3">
-            <span className="text-2xl font-bold font-mono text-zinc-100">
+          <div className="mt-3 min-w-0">
+            <span className="text-2xl font-bold font-mono text-zinc-100 block truncate">
               {activeEmployees} {t('dashboard.kpiStaffSuffix')}
             </span>
-            <span className="text-[11px] text-emerald-400 font-medium block mt-0.5">
+            <span className="text-[11px] text-emerald-400 font-medium block mt-0.5 truncate">
               {t('dashboard.kpiFormalContracts')}
             </span>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs">
-            <span className="text-zinc-400">{t('dashboard.kpiDeptsCount')}</span>
+          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs gap-2 min-w-0">
+            <span className="text-zinc-400 truncate">{t('dashboard.kpiDeptsCount')}</span>
             <button 
               onClick={() => onNavigate('employees')}
-              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1"
+              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap"
             >
               <span>{t('dashboard.kpiDirectory')}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -184,30 +184,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* KPI 3: Asistencia Hoy */}
-        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all">
+        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all min-w-0">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider truncate">
               {t('dashboard.kpiDailyAttendance')}
             </span>
-            <div className="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center shrink-0">
               <Clock className="w-4 h-4" />
             </div>
           </div>
 
-          <div className="mt-3">
-            <span className="text-2xl font-bold font-mono text-zinc-100">
+          <div className="mt-3 min-w-0">
+            <span className="text-2xl font-bold font-mono text-zinc-100 block truncate">
               {attendanceRate}%
             </span>
-            <span className="text-[11px] text-zinc-400 block mt-0.5">
+            <span className="text-[11px] text-zinc-400 block mt-0.5 truncate">
               {todayPresent} {t('dashboard.kpiActiveToday')}
             </span>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs">
-            <span className="text-emerald-400 font-medium">{t('dashboard.kpiRemoteVacation')}</span>
+          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs gap-2 min-w-0">
+            <span className="text-emerald-400 font-medium truncate">{t('dashboard.kpiRemoteVacation')}</span>
             <button 
               onClick={() => onNavigate('attendance')}
-              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1"
+              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap"
             >
               <span>{t('dashboard.kpiDetail')}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -216,30 +216,30 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* KPI 4: Solicitudes Pendientes */}
-        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all">
+        <div className="bg-[#0A0A0C] rounded-2xl p-5 border border-[#1F1F23] shadow-xs hover:border-indigo-500/40 transition-all min-w-0">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider truncate">
               {t('dashboard.kpiLeavesIncidents')}
             </span>
-            <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center shrink-0">
               <AlertCircle className="w-4 h-4" />
             </div>
           </div>
 
-          <div className="mt-3">
-            <span className="text-2xl font-bold font-mono text-zinc-100">
+          <div className="mt-3 min-w-0">
+            <span className="text-2xl font-bold font-mono text-zinc-100 block truncate">
               {pendingLeaves.length} {t('dashboard.kpiPendingCount')}
             </span>
-            <span className="text-[11px] text-amber-400 font-medium block mt-0.5">
+            <span className="text-[11px] text-amber-400 font-medium block mt-0.5 truncate">
               {t('dashboard.kpiRequireReview')}
             </span>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs">
-            <span className="text-zinc-400">{language === 'es' ? '1 Médico • 1 Personal' : '1 Medical • 1 Personal'}</span>
+          <div className="mt-4 pt-3 border-t border-[#1F1F23] flex items-center justify-between text-xs gap-2 min-w-0">
+            <span className="text-zinc-400 truncate">{language === 'es' ? '1 Médico • 1 Personal' : '1 Medical • 1 Personal'}</span>
             <button 
               onClick={() => onNavigate('attendance')}
-              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1"
+              className="text-indigo-400 hover:text-indigo-300 font-semibold hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap"
             >
               <span>{t('dashboard.kpiReview')}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

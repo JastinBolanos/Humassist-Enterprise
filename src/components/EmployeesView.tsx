@@ -296,18 +296,18 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({
 
       {/* Employees Grid View */}
       {viewMode === 'grid' ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {filteredEmployees.map((emp) => {
             const canSeeSalary = currentSession.permissions.canViewAllSalaries || emp.email === currentSession.email;
 
             return (
               <div 
                 key={emp.id}
-                className="bg-[#0A0A0C] rounded-2xl border border-[#1F1F23] p-5 shadow-xs hover:border-indigo-500/40 hover:shadow-md transition-all flex flex-col justify-between group"
+                className="bg-[#0A0A0C] rounded-2xl border border-[#1F1F23] p-4 sm:p-5 shadow-xs hover:border-indigo-500/40 hover:shadow-md transition-all flex flex-col justify-between group min-w-0 overflow-hidden"
               >
-                <div>
-                  <div className="flex items-start justify-between">
-                    <div className="relative">
+                <div className="min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="relative shrink-0">
                       <img
                         src={emp.avatar}
                         alt={`${emp.firstName} ${emp.lastName}`}
@@ -315,53 +315,55 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({
                         onError={(e) => {
                           e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&auto=format&fit=crop&q=80';
                         }}
-                        className="w-14 h-14 rounded-2xl object-cover border border-[#27272a] group-hover:scale-105 transition-transform"
+                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover border border-[#27272a] group-hover:scale-105 transition-transform"
                       />
-                      <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0A0A0C]"></span>
+                      <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-500 border-2 border-[#0A0A0C]"></span>
                     </div>
 
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#141418] text-zinc-300 font-mono border border-[#1F1F23]">
+                    <span className="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold bg-[#141418] text-zinc-300 font-mono border border-[#1F1F23]">
                       {emp.code}
                     </span>
                   </div>
 
-                  <div className="mt-4">
-                    <h3 className="text-sm font-bold text-white leading-tight">
+                  <div className="mt-3 sm:mt-4 min-w-0">
+                    <h3 className="text-sm font-bold text-white leading-tight truncate" title={`${emp.firstName} ${emp.lastName}`}>
                       {emp.firstName} {emp.lastName}
                     </h3>
-                    <p className="text-xs font-medium text-indigo-400 mt-0.5">
+                    <p className="text-xs font-medium text-indigo-400 mt-0.5 truncate" title={emp.position}>
                       {emp.position}
                     </p>
-                    <p className="text-[11px] text-zinc-400 mt-0.5">
+                    <p className="text-[11px] text-zinc-400 mt-0.5 truncate" title={`${translateDepartment(emp.department, language)} • ${translateContractType(emp.contractType, language)}`}>
                       {translateDepartment(emp.department, language)} • {translateContractType(emp.contractType, language)}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#1F1F23] space-y-1.5 text-xs text-zinc-300">
-                    <div className="flex items-center gap-2 truncate">
+                  <div className="mt-3 sm:mt-4 pt-3 border-t border-[#1F1F23] space-y-1.5 text-xs text-zinc-300 min-w-0">
+                    <div className="flex items-center gap-2 min-w-0">
                       <Mail className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
-                      <span className="truncate">{emp.email}</span>
+                      <span className="truncate text-xs text-zinc-300" title={emp.email}>{emp.email}</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
                       <Phone className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
-                      <span>{emp.phone}</span>
+                      <span className="truncate text-xs text-zinc-300">{emp.phone}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-[#1F1F23] flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] text-zinc-400 block font-medium">{t('employees.baseSalaryLabel')}</span>
-                    <span className="text-xs font-bold font-mono text-zinc-100">
+                <div className="mt-4 sm:mt-5 pt-3 border-t border-[#1F1F23] flex items-center justify-between gap-2 min-w-0">
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[10px] text-zinc-400 block font-medium truncate">
+                      {t('employees.baseSalaryLabel')}
+                    </span>
+                    <span className="text-xs font-bold font-mono text-zinc-100 block truncate">
                       {canSeeSalary ? `$${emp.baseSalary.toLocaleString(language === 'es' ? 'es-MX' : 'en-US')} ${language === 'es' ? 'MXN' : 'USD'}` : '••••••••'}
                     </span>
                   </div>
 
                   <button
                     onClick={() => setProfileModalEmployee(emp)}
-                    className="px-3 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 font-bold text-xs transition-colors flex items-center gap-1 border border-indigo-500/20"
+                    className="shrink-0 px-2.5 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-400 font-bold text-xs transition-colors flex items-center gap-1.5 border border-indigo-500/20 whitespace-nowrap cursor-pointer"
                   >
-                    <Eye className="w-3.5 h-3.5" />
+                    <Eye className="w-3.5 h-3.5 shrink-0" />
                     <span>{t('employees.viewProfileBtn')}</span>
                   </button>
                 </div>

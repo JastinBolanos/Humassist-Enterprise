@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
 @layer base {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #050505;
     color: #D4D4D8;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   code, pre, .font-mono {

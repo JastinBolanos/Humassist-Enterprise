@@ -17,6 +17,7 @@ import { translateRoleTitle } from '../i18n/translations';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { AuthModal } from './AuthModal';
 import { BrandLogoMark } from './BrandLogoMark';
+import { useScreenType } from '../hooks';
 
 interface SplashViewProps {
   onStart: (role?: AppRole, session?: UserSession) => void;
@@ -26,6 +27,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
   const { language, t } = useLanguage();
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const [authInitialMode, setAuthInitialMode] = useState<'login' | 'register'>('login');
+  const { isMobile, isSmallMobile } = useScreenType();
 
   const handleOpenLogin = () => {
     setAuthInitialMode('login');
@@ -33,22 +35,22 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#D4D4D8] selection:bg-indigo-600 selection:text-white flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-[#050505] text-[#D4D4D8] selection:bg-indigo-600 selection:text-white flex flex-col justify-between overflow-x-hidden w-full max-w-full">
       {/* Top Header */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between z-20">
-        <div className="flex items-center gap-3">
-          <BrandLogoMark size="md" glowIntensity="high" />
-          <div>
-            <span className="font-bold text-lg tracking-tight text-white flex items-center gap-2">
-              HUMASSIST <span className="text-indigo-400 font-semibold">Enterprise</span>
+      <header className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-6 flex items-center justify-between z-20 gap-2 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <BrandLogoMark size={isSmallMobile ? 'sm' : 'md'} glowIntensity="high" />
+          <div className="min-w-0">
+            <span className="font-bold text-sm sm:text-lg tracking-tight text-white flex items-center gap-1.5 truncate">
+              HUMASSIST <span className="text-indigo-400 font-semibold hidden xs:inline sm:inline">Enterprise</span>
             </span>
-            <span className="text-[11px] text-zinc-400 block tracking-wider uppercase font-mono">
-              {t('brand.splashTagline')}
+            <span className="text-[9px] sm:text-[11px] text-zinc-400 block tracking-wider uppercase font-mono truncate">
+              {isSmallMobile ? (language === 'es' ? 'Gestión de Talento' : 'Talent Suite') : t('brand.splashTagline')}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-1.5 sm:gap-4 shrink-0">
           {/* Prominent Language Switcher */}
           <LanguageSwitcher variant="pill" />
 
@@ -60,31 +62,34 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
           <button
             id="btn-ingresar-splash-top"
             onClick={handleOpenLogin}
-            className="px-4 sm:px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold shadow-lg shadow-indigo-600/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
+            className="shrink-0 px-2.5 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-indigo-600/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-1.5 sm:gap-2 whitespace-nowrap cursor-pointer"
+            title={t('splash.enterSystem')}
           >
-            <LogIn className="w-4 h-4" />
-            <span>{t('splash.enterSystem')}</span>
+            <LogIn className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+            <span className="whitespace-nowrap">
+              {isSmallMobile ? (language === 'es' ? 'Entrar' : 'Sign In') : (isMobile ? (language === 'es' ? 'Ingresar' : 'Sign In') : t('splash.enterSystem'))}
+            </span>
           </button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <main className="w-full max-w-7xl mx-auto px-6 py-8 flex-1 flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-1 flex flex-col justify-center min-w-0 overflow-x-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Copy and CTA */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 flex flex-col gap-6"
+            className="lg:col-span-7 flex flex-col gap-5 sm:gap-6 min-w-0"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0A0A0C] border border-[#1F1F23] text-indigo-300 text-xs font-medium w-fit">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-              <span>{t('splash.precisionPill')}</span>
+              <Sparkles className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+              <span className="truncate">{t('splash.precisionPill')}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight sm:leading-[1.12] break-words">
               {t('splash.heroTitle1')} <br />
               <span className="text-zinc-100 font-extrabold">
                 {t('splash.heroTitle2')}
@@ -92,43 +97,43 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               {t('splash.heroTitle3')}
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-lg text-zinc-300 max-w-2xl leading-relaxed">
               {t('splash.heroDesc')}
             </p>
 
             {/* Quick Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
               <button
                 id="btn-empezar-splash"
                 onClick={handleOpenLogin}
-                className="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-base shadow-xl shadow-indigo-600/30 transition-all hover:scale-[1.03] active:scale-[0.98] flex items-center gap-3 group"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm sm:text-base shadow-xl shadow-indigo-600/30 transition-all hover:scale-[1.03] active:scale-[0.98] flex items-center justify-center gap-2.5 group cursor-pointer"
               >
                 <span>{t('splash.startNow')}</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform shrink-0" />
               </button>
 
               <a
                 href="#roles-preview"
-                className="px-6 py-4 rounded-xl bg-[#0A0A0C] hover:bg-[#151518] text-zinc-200 hover:text-white font-medium text-base border border-[#1F1F23] transition-all flex items-center gap-2"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl bg-[#0A0A0C] hover:bg-[#151518] text-zinc-200 hover:text-white font-medium text-sm sm:text-base border border-[#1F1F23] transition-all flex items-center justify-center gap-2"
               >
-                <KeyRound className="w-4 h-4 text-zinc-400" />
+                <KeyRound className="w-4 h-4 text-zinc-400 shrink-0" />
                 <span>{t('splash.exploreRbac')}</span>
               </a>
             </div>
 
             {/* Micro Highlights */}
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#1F1F23] max-w-xl">
-              <div>
-                <span className="text-2xl font-bold text-white font-mono tracking-tight">99.9%</span>
-                <p className="text-xs text-zinc-400 mt-0.5">{t('splash.statFiscal')}</p>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 border-t border-[#1F1F23] max-w-xl">
+              <div className="min-w-0">
+                <span className="text-xl sm:text-2xl font-bold text-white font-mono tracking-tight block truncate">99.9%</span>
+                <p className="text-[10px] sm:text-xs text-zinc-400 mt-0.5 leading-snug">{t('splash.statFiscal')}</p>
               </div>
-              <div>
-                <span className="text-2xl font-bold text-white font-mono tracking-tight">&lt; 0.2s</span>
-                <p className="text-xs text-zinc-400 mt-0.5">{t('splash.statSpeed')}</p>
+              <div className="min-w-0">
+                <span className="text-xl sm:text-2xl font-bold text-white font-mono tracking-tight block truncate">&lt; 0.2s</span>
+                <p className="text-[10px] sm:text-xs text-zinc-400 mt-0.5 leading-snug">{t('splash.statSpeed')}</p>
               </div>
-              <div>
-                <span className="text-2xl font-bold text-white font-mono tracking-tight">RBAC 5★</span>
-                <p className="text-xs text-zinc-400 mt-0.5">{t('splash.statRbac')}</p>
+              <div className="min-w-0">
+                <span className="text-xl sm:text-2xl font-bold text-white font-mono tracking-tight block truncate">RBAC 5★</span>
+                <p className="text-[10px] sm:text-xs text-zinc-400 mt-0.5 leading-snug">{t('splash.statRbac')}</p>
               </div>
             </div>
           </motion.div>
@@ -347,26 +352,26 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
         </section>
 
         {/* Roles Quick-Start Section */}
-        <section id="roles-preview" className="mt-16 pt-12 border-t border-[#1F1F23] mb-12">
-          <div className="bg-[#0A0A0C] border border-[#1F1F23] rounded-3xl p-6 sm:p-10">
-            <div className="max-w-2xl mb-8">
+        <section id="roles-preview" className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-[#1F1F23] mb-8 sm:mb-12">
+          <div className="bg-[#0A0A0C] border border-[#1F1F23] rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-10">
+            <div className="max-w-2xl mb-6 sm:mb-8">
               <span className="text-xs font-semibold text-indigo-400 uppercase tracking-wider font-mono">
                 {language === 'es' ? 'Demostración Interactiva de Accesos' : 'Interactive Access Simulator'}
               </span>
-              <h3 className="text-2xl font-bold text-white mt-1">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
                 {t('splash.rolesSectionTitle')}
               </h3>
-              <p className="text-sm text-zinc-400 mt-1.5">
+              <p className="text-xs sm:text-sm text-zinc-400 mt-1.5">
                 {t('splash.rolesSectionDesc')}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
               
               {/* Role 1 */}
               <button
                 onClick={() => onStart('super_admin')}
-                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-rose-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group"
+                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-rose-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20">
@@ -388,7 +393,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               {/* Role 2 */}
               <button
                 onClick={() => onStart('hr_manager')}
-                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-indigo-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group"
+                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-indigo-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
@@ -410,7 +415,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               {/* Role 3 */}
               <button
                 onClick={() => onStart('payroll_specialist')}
-                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-emerald-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group"
+                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-emerald-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -432,7 +437,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               {/* Role 4 */}
               <button
                 onClick={() => onStart('supervisor')}
-                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-amber-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group"
+                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-amber-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
@@ -454,7 +459,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
               {/* Role 5 */}
               <button
                 onClick={() => onStart('employee')}
-                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-sky-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group"
+                className="p-4 rounded-2xl bg-[#121215] border border-[#1F1F23] hover:border-sky-500/50 text-left transition-all hover:scale-[1.02] flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">
@@ -479,7 +484,7 @@ export const SplashView: React.FC<SplashViewProps> = ({ onStart }) => {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-[#1F1F23] bg-[#050505] py-6 px-6 text-center text-xs text-zinc-500">
+      <footer className="w-full border-t border-[#1F1F23] bg-[#050505] py-4 sm:py-6 px-4 sm:px-6 text-center text-xs text-zinc-500">
         <p>{t('splash.footerRights')}</p>
       </footer>
 

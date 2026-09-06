@@ -224,7 +224,7 @@ function AppContent() {
   const pendingPayrollsCount = payrolls.filter(p => p.status === 'Pendiente' || p.status === 'En Proceso').length;
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#D4D4D8] flex flex-col selection:bg-indigo-600 selection:text-white font-sans">
+    <div className="min-h-screen bg-[#050505] text-[#D4D4D8] flex flex-col selection:bg-indigo-600 selection:text-white font-sans w-full max-w-full overflow-x-hidden">
       
       {/* Top Navbar */}
       <Navbar
@@ -237,7 +237,7 @@ function AppContent() {
       />
 
       {/* Main Workspace Layout */}
-      <div className="flex-1 flex flex-col md:flex-row max-w-[1600px] w-full mx-auto">
+      <div className="flex-1 flex flex-col md:flex-row max-w-[1600px] w-full mx-auto min-w-0">
         
         {/* Left Sidebar */}
         <Sidebar
@@ -249,47 +249,47 @@ function AppContent() {
         />
 
         {/* Mobile Tab Bar */}
-        <div className="md:hidden bg-[#0A0A0A] text-zinc-300 px-4 py-2 flex items-center justify-between overflow-x-auto text-xs border-b border-[#1F1F23] gap-2 shrink-0">
+        <div className="md:hidden bg-[#0A0A0A] text-zinc-300 px-3 py-2 flex items-center overflow-x-auto text-xs border-b border-[#1F1F23] gap-1.5 shrink-0">
           <button
             onClick={() => setActiveTab('dashboard')}
-            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${activeTab === 'dashboard' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors shrink-0 ${activeTab === 'dashboard' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
           >
             {t('sidebar.dashboard')}
           </button>
           <button
             onClick={() => setActiveTab('payroll')}
-            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${activeTab === 'payroll' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors shrink-0 ${activeTab === 'payroll' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
           >
             {t('sidebar.payroll')}
           </button>
           <button
             onClick={() => setActiveTab('attendance')}
-            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${activeTab === 'attendance' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors shrink-0 ${activeTab === 'attendance' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
           >
             {t('sidebar.attendance')}
           </button>
           <button
             onClick={() => setActiveTab('employees')}
-            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${activeTab === 'employees' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors shrink-0 ${activeTab === 'employees' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
           >
             {t('sidebar.employees')}
           </button>
           <button
             onClick={() => setActiveTab('rbac')}
-            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${activeTab === 'rbac' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors shrink-0 ${activeTab === 'rbac' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
           >
             {t('sidebar.rbac')}
           </button>
           <button
             onClick={() => setActiveTab('reports')}
-            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors ${activeTab === 'reports' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
+            className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-colors shrink-0 ${activeTab === 'reports' ? 'bg-indigo-600 text-white font-bold' : 'text-zinc-400 hover:text-white'}`}
           >
             {t('sidebar.reports')}
           </button>
         </div>
 
         {/* Dynamic Main View Container */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 min-w-0 max-w-7xl">
+        <main className="flex-1 p-3 sm:p-6 lg:p-8 min-w-0 max-w-full overflow-x-hidden">
           {activeTab === 'dashboard' && (
             <DashboardView
               employees={employees}

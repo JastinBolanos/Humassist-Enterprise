@@ -15,12 +15,12 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ variant = 'p
       <button
         id="btn-language-switcher-compact"
         onClick={toggleLanguage}
-        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#141417] hover:bg-[#1c1c22] border border-[#27272a] text-xs font-bold text-zinc-200 transition-all shadow-xs ${className}`}
+        className={`shrink-0 flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-lg bg-[#141417] hover:bg-[#1c1c22] border border-[#27272a] text-xs font-bold text-zinc-200 transition-all shadow-xs ${className}`}
         title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
         aria-label="Toggle language"
       >
-        <Globe className="w-3.5 h-3.5 text-indigo-400" />
-        <span className="font-mono">{language.toUpperCase()}</span>
+        <Globe className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+        <span className="font-mono text-xs">{language.toUpperCase()}</span>
       </button>
     );
   }
@@ -28,14 +28,14 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ variant = 'p
   return (
     <div
       id="btn-language-switcher-group"
-      className={`inline-flex items-center p-0.5 rounded-xl bg-[#121215] border border-[#27272a] shadow-xs ${className}`}
+      className={`inline-flex items-center shrink-0 p-0.5 rounded-xl bg-[#121215] border border-[#27272a] shadow-xs ${className}`}
       role="group"
       aria-label="Language selection"
     >
       <button
         id="btn-lang-es"
         onClick={() => setLanguage('es')}
-        className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+        className={`flex items-center justify-center gap-0.5 sm:gap-1 px-2 sm:px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all ${
           language === 'es'
             ? 'bg-indigo-600 text-white shadow-xs'
             : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#18181c]'
@@ -49,7 +49,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ variant = 'p
       <button
         id="btn-lang-en"
         onClick={() => setLanguage('en')}
-        className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+        className={`flex items-center justify-center gap-0.5 sm:gap-1 px-2 sm:px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-bold transition-all ${
           language === 'en'
             ? 'bg-indigo-600 text-white shadow-xs'
             : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#18181c]'
@@ -62,3 +62,4 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ variant = 'p
     </div>
   );
 };
+

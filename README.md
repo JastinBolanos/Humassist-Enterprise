@@ -7,7 +7,18 @@
 
 > **HUMASSIST Enterprise** es una plataforma integral de planificación de recursos empresariales (ERP) y orquestación estratégica de talento humano de alta disponibilidad. Diseñada para corporativos y organizaciones multinacionales, centraliza la automatización de nóminas con cálculo fiscal normativo, telemetría y registro de asistencias con validación biométrica/geolocalizada, gestión de incidencias contractuales y gobernanza estricta de seguridad bajo matrices de control de acceso basadas en roles (RBAC).
 >
-> 🟢 [Ver Plataforma en Vivo (Producción)](https://humassist-enterprise.prod.corp.internal)
+> 🟢 **[Ver Plataforma en Vivo (Producción)](https://humassist-enterprise.prod.corp.internal)**
+
+![Vista Previa de HUMASSIST Enterprise](https://github.com/user-attachments/assets/9fce6e1d-cb0e-4938-9790-3eac43f18d26)
+
+---
+
+## 🎥 Demostración de la Plataforma ERP
+
+**🎬 Recorrido Operativo de HUMASSIST**  
+Exploración de la interfaz empresarial: gestión de nóminas automatizadas, control de asistencia en tiempo real, administración integral de expedientes de talento y simulación de la matriz de privilegios basada en roles (RBAC).
+
+https://github.com/user-attachments/assets/6cfa38cc-3d95-4c21-a186-4bdf65c2f987
 
 ---
 

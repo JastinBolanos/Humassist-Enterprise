@@ -5,147 +5,147 @@
 ![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture%20%2F%20RBAC-indigo?style=flat-square)
 ![Security & Compliance](https://img.shields.io/badge/Security-Strict%20Zero--Trust%20Proxy-slate?style=flat-square)
 
-> **HUMASSIST Enterprise** es una plataforma integral de planificación de recursos empresariales (ERP) y orquestación estratégica de talento humano de alta disponibilidad. Diseñada para corporativos y organizaciones multinacionales, centraliza la automatización de nóminas con cálculo fiscal normativo, telemetría y registro de asistencias con validación biométrica/geolocalizada, gestión de incidencias contractuales y gobernanza estricta de seguridad bajo matrices de control de acceso basadas en roles (RBAC).
+> **HUMASSIST Enterprise** is a comprehensive, high-availability Enterprise Resource Planning (ERP) and strategic human capital orchestration platform. Designed for corporations and multinational organizations, it centralizes payroll automation with regulatory tax calculation, attendance tracking and telemetry with biometric/geolocation validation, contractual incident management, and strict security governance under role-based access control (RBAC) matrices.
 >
-> 🟢 **[Ver Plataforma en Vivo (Producción)](https://humassist-enterprise.prod.corp.internal)**
+> 🟢 **[View Live Platform (Production)](https://humassist-enterprise.prod.corp.internal)**
 
-![Vista Previa de HUMASSIST Enterprise](https://github.com/user-attachments/assets/9fce6e1d-cb0e-4938-9790-3eac43f18d26)
+![HUMASSIST Enterprise Preview](https://github.com/user-attachments/assets/9fce6e1d-cb0e-4938-9790-3eac43f18d26)
 
 ---
 
-## 🎥 Demostración de la Plataforma ERP
+## 🎥 ERP Platform Demo
 
-**🎬 Recorrido Operativo de HUMASSIST**  
-Exploración de la interfaz empresarial: gestión de nóminas automatizadas, control de asistencia en tiempo real, administración integral de expedientes de talento y simulación de la matriz de privilegios basada en roles (RBAC).
+**🎬 HUMASSIST Operational Walkthrough**  
+Exploration of the enterprise interface: automated payroll management, real-time attendance control, comprehensive talent file administration, and simulation of the role-based access control (RBAC) privilege matrix.
 
 https://github.com/user-attachments/assets/6cfa38cc-3d95-4c21-a186-4bdf65c2f987
 
 ---
 
-## 🏛️ Arquitectura de Sistema y Stack Tecnológico
+## 🏛️ System Architecture & Tech Stack
 
-La plataforma opera bajo el paradigma de **Clean Architecture** en el cliente, aislando entidades de dominio puro, casos de uso transaccionales y adaptadores de interfaz reactivos, acoplados a una capa perimetral de proxy seguro.
+The platform operates under the **Clean Architecture** paradigm on the client, isolating pure domain entities, transactional use cases, and reactive interface adapters, coupled with a secure perimeter proxy layer.
 
-> *Nota de Cumplimiento*: Este repositorio expone exclusivamente la capa de presentación (Frontend/Edge) y el API Gateway para fines de demostración técnica. Para emular los estándares de cumplimiento normativo de un entorno corporativo real (ISO 27001 / SOC 2), los motores de persistencia de datos y microservicios de liquidación se han desacoplado y simulado mediante persistencia local, asumiendo que en producción operarían desde redes aisladas (VPC).
+> *Compliance Notice*: This repository exclusively exposes the presentation layer (Frontend/Edge) and API Gateway for technical demonstration purposes. To emulate the regulatory compliance standards of an actual corporate environment (ISO 27001 / SOC 2), data persistence engines and settlement microservices have been decoupled and simulated via local persistence, assuming they would operate within isolated networks (VPC) in production.
 
 ### Core & Runtime
-- **TypeScript (`~5.8.2`)**: Sistema de tipado estricto que garantiza invariantes de dominio y previene fallos en tiempo de compilación.
-- **React 19 (`^19.0.1`) & React DOM (`^19.0.1`)**: Motor declarativo de renderizado concurrente y alta eficiencia de estado.
-- **Vite (`^6.2.3`) & @vitejs/plugin-react (`^5.0.4`)**: Pipeline de empaquetado optimizado con división de código dinámica.
+- **TypeScript (`~5.8.2`)**: Strict type system that enforces domain invariants and prevents compile-time errors.
+- **React 19 (`^19.0.1`) & React DOM (`^19.0.1`)**: Declarative concurrent rendering engine with high state efficiency.
+- **Vite (`^6.2.3`) & @vitejs/plugin-react (`^5.0.4`)**: Optimized bundling pipeline with dynamic code splitting.
 
-### UI, Renderizado & Motion
-- **Tailwind CSS v4 (`^4.1.14`) & @tailwindcss/vite (`^4.1.14`)**: Motor de utilidades CSS de alto rendimiento con optimización de layout en tiempo de compilación.
-- **Motion (`^12.23.24`)**: Orquestación declarativa de animaciones, transiciones de layout fluidas y microinteracciones de interfaz.
-- **Lucide React (`^0.546.0`)**: Catálogo iconográfico vectorial optimizado para accesibilidad empresarial.
-- **Autoprefixer (`^10.4.21`)**: Compatibilidad cross-browser automatizada en capa de estilos.
+### UI, Rendering & Motion
+- **Tailwind CSS v4 (`^4.1.14`) & @tailwindcss/vite (`^4.1.14`)**: High-performance utility-first CSS engine with compile-time layout optimization.
+- **Motion (`^12.23.24`)**: Declarative animation orchestration, fluid layout transitions, and interface microinteractions.
+- **Lucide React (`^0.546.0`)**: Vector icon catalog optimized for enterprise accessibility.
+- **Autoprefixer (`^10.4.21`)**: Automated cross-browser style compatibility.
 
-### Motor de Inferencia & Telemetría Inteligente
-- **@google/genai (`^2.4.0`)**: SDK de integración para modelos de lenguaje multimodal e inferencia contextual de apoyo a la gestión de talento humano.
+### Inference Engine & Smart Telemetry
+- **@google/genai (`^2.4.0`)**: Integration SDK for multimodal language models and contextual inference supporting human capital management.
 
-### Backend, Proxy Seguro & Servidor Edge
-- **Express (`^4.21.2`)**: Servidor perimetral para intermediación de solicitudes, control de encabezados y enrutamiento proxy seguro.
-- **tsx (`^4.21.0`) & esbuild (`^0.25.0`)**: Transpilador y empaquetador ultrarrápido para el despliegue del runtime de Node.js.
-- **dotenv (`^17.2.3`)**: Inyección segura y aislada de variables de entorno del servidor.
-- **@types/node (`^22.14.0`) & @types/express (`^4.17.21`)**: Tipado estricto para las interfaces de sistema y red.
-
----
-
-## 💼 Módulos Operativos (Desplegados)
-
-1. **Centro de Control Ejecutivo (Executive Dashboard & Metrics)**
-   - Consolidación en tiempo real de indicadores clave de rendimiento (KPIs), masa salarial devengada, índice ponderado de puntualidad, ausentismo laboral y desglose presupuestario por división corporativa.
-
-2. **Motor de Compensaciones y Dispersión Fiscal (`Payroll Engine`)**
-   - Módulo automatizado de cálculo de percepciones y deducciones conforme a regulaciones vigentes (ISR, IMSS, AFORE, horas extra extraordinarias y bonificaciones).
-   - Generación, pre-autorización, timbrado simulado y emisión de recibos digitales de nómina auditables con exportación a formatos estándar.
-
-3. **Telemetría de Jornadas y Control de Asistencia (`Time & Attendance Tracking`)**
-   - Registro de accesos, pausas y salidas con autenticación biométrica y validación de coordenadas de geolocalización.
-   - Flujo de solicitud, revisión y dictaminación de licencias, incapacidades y periodos vacacionales con auditoría de supervisión.
-
-4. **Expediente Único y Directorio de Plantilla (`Employee Registry & Directory`)**
-   - Administración 360° del ciclo de vida del colaborador: alta contractual, datos bancarios de dispersión, contactos de contingencia, asignación departamental y trazabilidad de desempeño.
-
-5. **Gobernanza y Matriz de Privilegios RBAC (`Role-Based Access Control`)**
-   - Control de acceso granular segregado en 5 perfiles estratégicos: *Super Administrador*, *Director de Talento Humano*, *Especialista de Nóminas*, *Supervisor Operativo* y *Colaborador*.
-   - Simulador dinámico para auditoría inmediata de permisos y vistas contextuales.
-
-6. **Auditoría e Inteligencia de Negocio (`Enterprise Reports & Data Export`)**
-   - Extracción estructurada de nóminas, asistencias y plantilla en CSV compatible con sistemas ERP centrales y almacenes de datos analíticos.
+### Backend, Secure Proxy & Edge Server
+- **Express (`^4.21.2`)**: Perimeter server for request intermediation, header controls, and secure proxy routing.
+- **tsx (`^4.21.0`) & esbuild (`^0.25.0`)**: Ultra-fast transpiler and bundler for Node.js runtime deployment.
+- **dotenv (`^17.2.3`)**: Secure and isolated server environment variable injection.
+- **@types/node (`^22.14.0`) & @types/express (`^4.17.21`)**: Strict typing for system and network interfaces.
 
 ---
 
-## 🚀 Guía de Despliegue y Auditoría
+## 💼 Operational Modules (Deployed)
 
-### Requisitos de Entorno
-- **Node.js**: Entorno de ejecución `v20.0.0 LTS` o superior.
-- **Gestor de Paquetes**: `npm` v10+, `pnpm` o `yarn`.
+1. **Executive Dashboard & Metrics**
+   - Real-time consolidation of key performance indicators (KPIs), accrued payroll, weighted punctuality index, absenteeism rates, and corporate division budget breakdowns.
 
-### 1. Clonación del Repositorio
+2. **Compensation & Tax Disbursement Engine (`Payroll Engine`)**
+   - Automated earnings and deductions calculation module compliant with current regulations (income tax, social security, pension funds, overtime, and bonuses).
+   - Generation, pre-authorization, simulated tax stamping, and issuance of auditable digital pay slips with export to standard formats.
+
+3. **Shift Telemetry & Attendance Tracking (`Time & Attendance Tracking`)**
+   - Logging of clock-ins, breaks, and clock-outs with biometric verification and geolocation coordinate validation.
+   - Request, review, and resolution workflows for leaves of absence, disability leaves, and vacation periods with supervisory auditing.
+
+4. **Employee Directory & Personnel Records (`Employee Registry & Directory`)**
+   - 360° employee lifecycle administration: contractual onboarding, disbursement bank details, emergency contacts, department assignments, and performance traceability.
+
+5. **RBAC Privilege Matrix & Governance (`Role-Based Access Control`)**
+   - Granular access control segregated across 5 strategic roles: *Super Admin*, *HR Director*, *Payroll Specialist*, *Operations Supervisor*, and *Employee*.
+   - Dynamic simulator for real-time privilege auditing and contextual view previewing.
+
+6. **Business Intelligence & Audit (`Enterprise Reports & Data Export`)**
+   - Structured export of payroll, attendance, and employee rosters in CSV format compatible with core ERP systems and analytical data warehouses.
+
+---
+
+## 🚀 Deployment & Audit Guide
+
+### Environment Prerequisites
+- **Node.js**: Runtime environment `v20.0.0 LTS` or higher.
+- **Package Manager**: `npm` v10+, `pnpm`, or `yarn`.
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/empresa-org/humassist-enterprise-erp.git
 cd humassist-enterprise-erp
 ```
 
-### 2. Configuración de Entorno
-Copia la plantilla de variables de entorno y define las credenciales corporativas:
+### 2. Environment Configuration
+Copy the environment variables template and set corporate credentials:
 ```bash
 cp .env.example .env
 ```
 
-### 3. Instalación de Dependencias
+### 3. Install Dependencies
 ```bash
 npm install
 ```
 
-### 4. Ejecución en Modo Desarrollo
-Inicia el entorno local de desarrollo con recarga en caliente y proxy integrado en el puerto 3000:
+### 4. Run in Development Mode
+Start the local development server with hot reload and integrated proxy on port 3000:
 ```bash
 npm run dev
 ```
-Acceso local: `http://localhost:3000`
+Local access: `http://localhost:3000`
 
 ---
 
-## ⚙️ Herramientas de Integración y Despliegue (CI/CD)
+## ⚙️ CI/CD & Integration Tooling
 
-| Comando | Contexto / Pipeline | Descripción Técnica |
+| Command | Context / Pipeline | Technical Description |
 | :--- | :--- | :--- |
-| `npm run dev` | Desarrollo Local | Inicia el servidor de desarrollo Vite / Express en `0.0.0.0:3000` con compilación Just-in-Time. |
-| `npm run lint` | Validación Estática & CI | Ejecuta `tsc --noEmit` para auditar la integridad del sistema de tipos sin emitir artefactos. |
-| `npm run build` | Empaquetado de Producción | Genera el bundle optimizado del cliente en `dist/` y compila el servidor perimetral. |
-| `npm run preview` | Previsualización Staging | Monta un servidor local para verificar el comportamiento de los artefactos compilados en `dist/`. |
+| `npm run dev` | Local Development | Starts the Vite / Express dev server on `0.0.0.0:3000` with Just-in-Time compilation. |
+| `npm run lint` | Static Analysis & CI | Runs `tsc --noEmit` to verify type system integrity without outputting artifacts. |
+| `npm run build` | Production Packaging | Generates the optimized client bundle in `dist/` and compiles the perimeter server. |
+| `npm run preview` | Staging Preview | Spins up a local server to verify compiled build artifacts in `dist/`. |
 
 ---
 
-## 🏛️ Arquitectura de Dominio (Tree)
+## 🏛️ Domain Architecture (Tree)
 
 ```text
 src/
-├── domain/                  # Capa de Dominio Puro
-│   └── entities/            # Modelos e invariantes de negocio (Employee, Payroll, Attendance, RBAC)
-├── services/                # Capa de Aplicación y Casos de Uso
-│   ├── payroll/             # Lógica de cálculo fiscal, deducciones e impuestos
-│   ├── attendance/          # Reglas de jornada, biométricos y puntualidad
-│   ├── leaves/              # Flujos de aprobación y balance de ausencias
-│   ├── rbac/                # Políticas de seguridad, roles y permisos
-│   ├── storage/             # Adaptadores de persistencia y repositorios
-│   └── export/              # Transformación y exportación de datos (CSV)
-├── hooks/                   # Orquestadores reactivos de estado (useERPData, useRBACSession)
-├── components/              # Vistas y componentes de presentación desacoplados
-│   ├── DashboardView.tsx    # Métricas y visualización ejecutiva
-│   ├── PayrollView.tsx      # Gestión de dispersión salarial y nómina
-│   ├── AttendanceView.tsx   # Control de jornadas y vacaciones
-│   ├── EmployeesView.tsx    # Directorio de plantilla y expedientes
-│   ├── RBACView.tsx         # Matriz de privilegios y simulador de roles
-│   └── ReportsView.tsx      # Generación de reportes y analítica
-├── i18n/                    # Módulo de internacionalización bilingüe (ES / EN)
-├── data/                    # Datos semilla corporativos y perfiles iniciales
-├── utils/                   # Utilidades matemáticas, formateadores de moneda y fechas
-├── types.ts                 # Definiciones globales de TypeScript
-└── main.tsx                 # Punto de entrada y arranque de la aplicación
+├── domain/                  # Pure Domain Layer
+│   └── entities/            # Business models and invariants (Employee, Payroll, Attendance, RBAC)
+├── services/                # Application Layer & Use Cases
+│   ├── payroll/             # Tax calculation, deduction, and compensation logic
+│   ├── attendance/          # Shift rules, biometrics, and punctuality
+│   ├── leaves/              # Approval workflows and leave balances
+│   ├── rbac/                # Security policies, roles, and permissions
+│   ├── storage/             # Persistence adapters and repositories
+│   └── export/              # Data transformation and export (CSV)
+├── hooks/                   # Reactive state orchestrators (useERPData, useRBACSession)
+├── components/              # Decoupled views and presentation components
+│   ├── DashboardView.tsx    # Executive metrics and dashboard visualization
+│   ├── PayrollView.tsx      # Payroll distribution and payslip management
+│   ├── AttendanceView.tsx   # Shift control and vacation tracking
+│   ├── EmployeesView.tsx    # Staff directory and personnel records
+│   ├── RBACView.tsx         # Privilege matrix and role simulator
+│   └── ReportsView.tsx      # Report generation and analytics
+├── i18n/                    # Bilingual internationalization module (ES / EN)
+├── data/                    # Corporate seed data and initial profiles
+├── utils/                   # Math helpers, currency, and date formatters
+├── types.ts                 # Global TypeScript declarations
+└── main.tsx                 # Application startup and entry point
 ```
 
 ---
 
-Propiedad de Arquitectura de Software - Jastin Bolaños © 2026. Proyecto de Demostración Técnica Empresarial.
+Software Architecture Ownership - Jastin Bolaños © 2026. Enterprise Technical Demonstration Project.

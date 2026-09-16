@@ -1,17 +1,29 @@
-# HUMASSIST Enterprise v2.0.0-ENT
+<div align="center">
+  <img alt="HUMASSIST Banner" src="https://github.com/user-attachments/assets/b399c207-24ff-44d3-8e66-0dca85f69e0a" width="40%" />
 
-![Build Status](https://img.shields.io/badge/Build-Passing-emerald?style=flat-square&logo=github-actions)
-![Deployment](https://img.shields.io/badge/Deployment-Production%20Ready-blue?style=flat-square&logo=google-cloud)
-![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture%20%2F%20RBAC-indigo?style=flat-square)
-![Security & Compliance](https://img.shields.io/badge/Security-Strict%20Zero--Trust%20Proxy-slate?style=flat-square)
+  <br>
+
+  <h3>Enterprise ERP & Human Capital Platform (v2.0.0-ENT)</h3>
+
+  <p>
+    <img src="https://img.shields.io/badge/Build-Passing-emerald?style=flat-square&logo=github-actions" alt="Build Status" />
+    <img src="https://img.shields.io/badge/Deployment-Production%20Ready-blue?style=flat-square&logo=google-cloud" alt="Deployment" />
+    <img src="https://img.shields.io/badge/Architecture-Clean%20Architecture%20%2F%20RBAC-indigo?style=flat-square" alt="Architecture" />
+    <img src="https://img.shields.io/badge/Security-Strict%20Zero--Trust%20Proxy-slate?style=flat-square" alt="Security & Compliance" />
+  </p>
+</div>
+
+<br>
 
 > **HUMASSIST Enterprise** is a comprehensive, high-availability Enterprise Resource Planning (ERP) and strategic human capital orchestration platform. Designed for corporations and multinational organizations, it centralizes payroll automation with regulatory tax calculation, attendance tracking and telemetry with biometric/geolocation validation, contractual incident management, and strict security governance under role-based access control (RBAC) matrices.
->
-> 🟢 **[View Live Platform (Production)](https://humassist-enterprise.prod.corp.internal)**
 
-![HUMASSIST Enterprise Preview](https://github.com/user-attachments/assets/9fce6e1d-cb0e-4938-9790-3eac43f18d26)
+<br>
 
----
+<div align="center">
+  <h3>🌍 <b><a href="https://humassist.vercel.app">View Live Platform (Production) 🟢</a></b></h3>
+  <br>
+  <img alt="HUMASSIST Preview" src="https://github.com/user-attachments/assets/9fce6e1d-cb0e-4938-9790-3eac43f18d26" width="80%" />
+</div>
 
 ## 🎥 ERP Platform Demo
 

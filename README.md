@@ -15,7 +15,8 @@
 
 <br>
 
-> **HUMASSIST Enterprise** is a comprehensive, high-availability Enterprise Resource Planning (ERP) and strategic human capital orchestration platform. Designed for corporations and multinational organizations, it centralizes payroll automation with regulatory tax calculation, attendance tracking and telemetry with biometric/geolocation validation, contractual incident management, and strict security governance under role-based access control (RBAC) matrices.
+> **Human Resources & Workforce Management Interface Showcase.**  
+> A client-side ERP dashboard interface exploring workforce administration, interactive payroll breakdowns, simulated attendance tracking with location tags, employee records, and a role-based access control (RBAC) view switcher.
 
 <br>
 
@@ -28,7 +29,7 @@
 ## 🎥 ERP Platform Demo
 
 **🎬 HUMASSIST Operational Walkthrough**  
-Exploration of the enterprise interface: automated payroll management, real-time attendance control, comprehensive talent file administration, and simulation of the role-based access control (RBAC) privilege matrix.
+Interface walkthrough: payroll calculation views, attendance check-in controls, employee profile administration, and testing view states with the role-based access control (RBAC) simulator.
 
 https://github.com/user-attachments/assets/6cfa38cc-3d95-4c21-a186-4bdf65c2f987
 
@@ -36,54 +37,54 @@ https://github.com/user-attachments/assets/6cfa38cc-3d95-4c21-a186-4bdf65c2f987
 
 ## 🏛️ System Architecture & Tech Stack
 
-The platform operates under the **Clean Architecture** paradigm on the client, isolating pure domain entities, transactional use cases, and reactive interface adapters, coupled with a secure perimeter proxy layer.
+The application is built using clean frontend architecture patterns, separating domain entities, calculation use cases, and UI presentation components.
 
-> *Compliance Notice*: This repository exclusively exposes the presentation layer (Frontend/Edge) and API Gateway for technical demonstration purposes. To emulate the regulatory compliance standards of an actual corporate environment (ISO 27001 / SOC 2), data persistence engines and settlement microservices have been decoupled and simulated via local persistence, assuming they would operate within isolated networks (VPC) in production.
+> *Notice*: This repository presents the client application (Frontend/Edge) and a local development proxy. Enterprise database engines and external payment settlement microservices are simulated locally to provide an accessible, self-contained demonstration experience.
 
 ### Core & Runtime
-- **TypeScript (`~5.8.2`)**: Strict type system that enforces domain invariants and prevents compile-time errors.
-- **React 19 (`^19.0.1`) & React DOM (`^19.0.1`)**: Declarative concurrent rendering engine with high state efficiency.
-- **Vite (`^6.2.3`) & @vitejs/plugin-react (`^5.0.4`)**: Optimized bundling pipeline with dynamic code splitting.
+- **TypeScript (`~5.8.2`)**: Type safety across domain models, employee records, and calculation functions.
+- **React 19 (`^19.0.1`) & React DOM (`^19.0.1`)**: Component-based UI library for responsive interface rendering.
+- **Vite (`^6.2.3`) & @vitejs/plugin-react (`^5.0.4`)**: Development server and client production bundler.
 
 ### UI, Rendering & Motion
-- **Tailwind CSS v4 (`^4.1.14`) & @tailwindcss/vite (`^4.1.14`)**: High-performance utility-first CSS engine with compile-time layout optimization.
-- **Motion (`^12.23.24`)**: Declarative animation orchestration, fluid layout transitions, and interface microinteractions.
-- **Lucide React (`^0.546.0`)**: Vector icon catalog optimized for enterprise accessibility.
-- **Autoprefixer (`^10.4.21`)**: Automated cross-browser style compatibility.
+- **Tailwind CSS v4 (`^4.1.14`) & @tailwindcss/vite (`^4.1.14`)**: Utility-first CSS framework providing a clean, accessible corporate aesthetic.
+- **Motion (`^12.23.24`)**: Transitions and micro-interactions across tab changes and modal dialogues.
+- **Lucide React (`^0.546.0`)**: Vector iconography for navigation and data tables.
+- **Autoprefixer (`^10.4.21`)**: Automated cross-browser stylesheet compatibility.
 
-### Inference Engine & Smart Telemetry
-- **@google/genai (`^2.4.0`)**: Integration SDK for multimodal language models and contextual inference supporting human capital management.
+### Inference & Assistance
+- **@google/genai (`^2.4.0`)**: Integration with Gemini language models for contextual assistant features and administrative summaries.
 
-### Backend, Secure Proxy & Edge Server
-- **Express (`^4.21.2`)**: Perimeter server for request intermediation, header controls, and secure proxy routing.
-- **tsx (`^4.21.0`) & esbuild (`^0.25.0`)**: Ultra-fast transpiler and bundler for Node.js runtime deployment.
-- **dotenv (`^17.2.3`)**: Secure and isolated server environment variable injection.
-- **@types/node (`^22.14.0`) & @types/express (`^4.17.21`)**: Strict typing for system and network interfaces.
+### Backend, Proxy & Development Tools
+- **Express (`^4.21.2`)**: Lightweight local proxy server for routing and local middleware handling.
+- **tsx (`^4.21.0`) & esbuild (`^0.25.0`)**: TypeScript execution and bundling for the local server.
+- **dotenv (`^17.2.3`)**: Environment configuration loader.
+- **@types/node (`^22.14.0`) & @types/express (`^4.17.21`)**: Type definitions for Node.js and Express.
 
 ---
 
 ## 💼 Operational Modules (Deployed)
 
-1. **Executive Dashboard & Metrics**
-   - Real-time consolidation of key performance indicators (KPIs), accrued payroll, weighted punctuality index, absenteeism rates, and corporate division budget breakdowns.
+1. **Dashboard & Key Metrics**
+   - High-level overview of key HR metrics: total payroll estimates, average attendance rates, recorded absences, and departmental summaries.
 
-2. **Compensation & Tax Disbursement Engine (`Payroll Engine`)**
-   - Automated earnings and deductions calculation module compliant with current regulations (income tax, social security, pension funds, overtime, and bonuses).
-   - Generation, pre-authorization, simulated tax stamping, and issuance of auditable digital pay slips with export to standard formats.
+2. **Payroll & Deductions Engine (`Payroll Engine`)**
+   - Interactive calculation table for earnings and deductions (income taxes, social security, overtime rates, and bonuses).
+   - Payslip preview modal with simulated approval actions and exportable summary statements.
 
-3. **Shift Telemetry & Attendance Tracking (`Time & Attendance Tracking`)**
-   - Logging of clock-ins, breaks, and clock-outs with biometric verification and geolocation coordinate validation.
-   - Request, review, and resolution workflows for leaves of absence, disability leaves, and vacation periods with supervisory auditing.
+3. **Attendance & Shift Records (`Time & Attendance Tracking`)**
+   - Clock-in and clock-out simulation with location tag previews and status logging.
+   - Leave request review panel for vacation, personal days, and medical leave.
 
-4. **Employee Directory & Personnel Records (`Employee Registry & Directory`)**
-   - 360° employee lifecycle administration: contractual onboarding, disbursement bank details, emergency contacts, department assignments, and performance traceability.
+4. **Employee Directory & Profile Records (`Employee Registry & Directory`)**
+   - Employee records manager: contact details, department assignments, hire dates, and compensation profiles.
 
-5. **RBAC Privilege Matrix & Governance (`Role-Based Access Control`)**
-   - Granular access control segregated across 5 strategic roles: *Super Admin*, *HR Director*, *Payroll Specialist*, *Operations Supervisor*, and *Employee*.
-   - Dynamic simulator for real-time privilege auditing and contextual view previewing.
+5. **RBAC Role Simulator (`Role-Based Access Control`)**
+   - Role switcher supporting 5 operational roles: *Super Admin*, *HR Director*, *Payroll Specialist*, *Operations Supervisor*, and *Employee*.
+   - Interactive preview showing how UI permissions and menu actions adapt based on active roles.
 
-6. **Business Intelligence & Audit (`Enterprise Reports & Data Export`)**
-   - Structured export of payroll, attendance, and employee rosters in CSV format compatible with core ERP systems and analytical data warehouses.
+6. **Reports & Data Export (`Enterprise Reports & Data Export`)**
+   - Data export tools generating structured CSV summaries for payroll, attendance, and directory information.
 
 ---
 
